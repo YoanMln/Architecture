@@ -135,9 +135,11 @@ Exécute la logique métier et fait le lien entre l’interface utilisateur et l
 
 ## Schémas architectures
 
-### Architecture monolithe (simple)
+# Architectures Logicielles
 
+## Architecture Monolithe (Simple)
 
+```
                  ┌───────────────────────────┐
                  │        CLIENTS            │
                  │                           │
@@ -155,7 +157,7 @@ Exécute la logique métier et fait le lien entre l’interface utilisateur et l
                │
                ▼
  ┌─────────────────────────────────────────────────────────┐
- │                 SERVEUR D’APPLICATION                   │
+ │                 SERVEUR D'APPLICATION                   │
  │  - Contient la logique métier (authentification,        │
  │    gestion commandes, calculs, etc.)                    │
  └─────────────▲──────────────────────────────────────────-┘
@@ -167,22 +169,25 @@ Exécute la logique métier et fait le lien entre l’interface utilisateur et l
  │  - Inventaire, commandes  │     └───────────────────────────┘
  │  - Transactions           │
  └───────────────────────────┘
- 
- Caractéristiques :
- Une seule applicatin déployée d'un bloc
- BDD unique partagée
- 
- Avantages : 
- Simple à développer et tester
- déploiement simple 
- 
- Inconvénients : 
- Déploiement complexe des maj
- Technologie unique
+```
 
- 
- ## Architecture 3 tiers (Séparation des rôles)
+### Caractéristiques
+- Une seule application déployée d'un bloc
+- BDD unique partagée
 
+### Avantages
+- Simple à développer et tester
+- Déploiement simple
+
+### Inconvénients
+- Déploiement complexe des mises à jour
+- Technologie unique
+
+---
+
+## Architecture 3 Tiers (Séparation des rôles)
+
+```
 ┌─────────────────────────────────────────┐
 │              NIVEAU 1                   │
 │          PRÉSENTATION                   │
@@ -223,19 +228,21 @@ Exécute la logique métier et fait le lien entre l’interface utilisateur et l
 │  │  • Intégrité                        ││
 │  └─────────────────────────────────────┘│
 └─────────────────────────────────────────┘
+```
 
-Caractéristiques
-Séparation claire des rôles
-Maintenancefacilitée par couche
+### Caractéristiques
+- Séparation claire des rôles
+- Maintenance facilitée par couche
 
-Inconvénients 
-Latences réseau entre les couches
-Plus complexe que le monolithe
+### Inconvénients
+- Latences réseau entre les couches
+- Plus complexe que le monolithe
 
+---
 
+## N Tiers / Multi-couches
 
-## N tiers / multi-couches
-
+```
 ┌─────────────────────────────────────────┐
 │           NIVEAU PRÉSENTATION           │
 │  ┌─────────┐ ┌─────────┐ ┌─────────┐    │
@@ -289,22 +296,25 @@ Plus complexe que le monolithe
 │  │Principal│ │Warehouse│ │ (Redis) │    │
 │  └─────────┘ └─────────┘ └─────────┘    │
 └─────────────────────────────────────────┘
+```
 
-Caractéristiques 
-Multiplication des couches selon les besoins
-Flexibilité architecturale
+### Caractéristiques
+- Multiplication des couches selon les besoins
+- Flexibilité architecturale
 
-Avantages 
-Technologies spécialisées par niveau
-Maintenance ciblée par couche
+### Avantages
+- Technologies spécialisées par niveau
+- Maintenance ciblée par couche
 
-Inconvénients
-Latence cumulée entre couches
-Complexité de gestion élevée
+### Inconvénients
+- Latence cumulée entre couches
+- Complexité de gestion élevée
 
+---
 
 ## Microservices (Autonomie complète)
 
+```
 ┌─────────────────────────────────────────┐
 │              CLIENTS                    │
 │  ┌─────────┐ ┌─────────┐ ┌─────────┐    │
@@ -358,19 +368,18 @@ Complexité de gestion élevée
 │ │Payments │ │ │ │ Queue   │ │ │ │   DB    │ │
 │ └─────────┘ │ │ └─────────┘ │ │ └─────────┘ │
 └─────────────┘ └─────────────┘ └─────────────┘
+```
 
-Caractéristiques :
-Servicces indépendants et autonomes 
-Communication via API
-Technologies variées selon les besoins
+### Caractéristiques
+- Services indépendants et autonomes
+- Communication via API
+- Technologies variées selon les besoins
 
-Avantages : 
-Panne isolée
-Déploiement continu facilité
+### Avantages
+- Panne isolée
+- Déploiement continu facilité
 
-Inconvénients : 
-Complexité opérationnelle élevée
-Latance réseau entre services
-
-
+### Inconvénients
+- Complexité opérationnelle élevée
+- Latence réseau entre services
 
